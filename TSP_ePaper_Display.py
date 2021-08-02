@@ -1,7 +1,9 @@
 # The Signal Path - DataPad ePaper Display
 # Shahriar Shahramian / November 2018
 import os
-libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+import sys
+
+libdir = '/home/pi/Desktop/Epaper_Todo_Weather/lib'
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
@@ -12,7 +14,6 @@ from PIL import ImageFont
 import calendar
 import time
 import requests
-import sys
 import json
 import wand
 from wand.display import display
@@ -248,7 +249,8 @@ def refresh_Screen():
         print('-= ...Done =-')
     else:
         print('-= Updating ePaper... =-')
-        epd.display_frame(epd.get_frame_buffer(image_black),epd.get_frame_buffer(image_red))
+        epd.display(epd.getbuffer(image_black),epd.getbuffer(image_red))
         print('-= ...Done =-')
 if __name__ == '__main__':
     main()
+
