@@ -1,7 +1,7 @@
 # The Signal Path - DataPad ePaper Display
 # Shahriar Shahramian / November 2018
 
-import epd7in5b
+import epd7in5bc
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -24,9 +24,9 @@ TODOIST_TOKEN = '36c2f27f3b4d5b91c4f08eab7b2f0a8b8e7f0ed3'
 WEATHER_API = '23b730dd483a08cd9868327e9a63e9ef'
 
 def main():
-        global Debug_Mode; Debug_Mode = 1
+        global Debug_Mode; Debug_Mode = 0
         global do_screen_update; do_screen_update = 1
-        global epd; epd = epd7in5b.EPD()
+        global epd; epd = epd7in5bc.EPD()
         if Debug_Mode == 0:
             epd.init()
         else:
@@ -98,7 +98,7 @@ def query_weather():
         try:
             weather_response = requests.get("http://api.openweathermap.org/data/2.5/weather", params={"appid":WEATHER_API, "zip":'07059,us'}).json()
             forecast_response = requests.get("http://api.openweathermap.org/data/2.5/forecast", params={"appid":WEATHER_API, "zip":'07059,us'}).json()
-            print(wether_response)
+            print(weather_response)
             print(forecast_response)
             break
         except:
