@@ -1,9 +1,10 @@
 # The Signal Path - DataPad ePaper Display
 # Shahriar Shahramian / November 2018
+import os
 ibdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 if os.path.exists(libdir):
     sys.path.append(libdir)
-    
+
 from waveshare_epd import epd7in5bc
 from PIL import Image
 from PIL import ImageDraw
