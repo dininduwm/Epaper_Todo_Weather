@@ -101,8 +101,8 @@ def query_weather():
     print('-= Ping Weather API =-')
     while True:
         try:
-            weather_response = requests.get("http://api.openweathermap.org/data/2.5/weather", params={"appid":WEATHER_API, "zip":'07059,us'}).json()
-            forecast_response = requests.get("http://api.openweathermap.org/data/2.5/forecast", params={"appid":WEATHER_API, "zip":'07059,us'}).json()
+            weather_response = requests.get("http://api.openweathermap.org/data/2.5/weather", params={"appid":WEATHER_API, "id":'1250615'}).json()
+            forecast_response = requests.get("http://api.openweathermap.org/data/2.5/forecast", params={"appid":WEATHER_API, "id":'1250615'}).json()
             print(weather_response)
             print(forecast_response)
             break
