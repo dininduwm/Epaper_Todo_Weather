@@ -2,9 +2,9 @@
 # Shahriar Shahramian / November 2018
 
 import epd7in5b
-import Image
-import ImageDraw
-import ImageFont
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 import calendar
 import time
 import requests
@@ -13,9 +13,10 @@ import json
 import wand
 from wand.display import display
 import datetime
+from importlib import reload
 
 reload(sys)
-sys.setdefaultencoding('utf-8')
+#sys.setdefaultencoding('utf-8')
 
 EPD_WIDTH = 640
 EPD_HEIGHT = 384
@@ -74,7 +75,8 @@ def query_todo_list():
     print('-= Ping ToDo API =-')
     while True:
         try:
-            new_todo_response = requests.get("https://beta.todoist.com/API/v8/tasks", params={"token":TODOIST_TOKEN}).json()
+            #new_todo_response = requests.get("https://beta.todoist.com/API/v8/tasks", params={"token":TODOIST_TOKEN}).json()
+            new_todo_response = [{'content':"Test", 'priority':"1"}]
             break
         except ValueError:
             print('-= ToDo API JSON Failed - Will Try Again =-')
@@ -96,6 +98,8 @@ def query_weather():
         try:
             weather_response = requests.get("http://api.openweathermap.org/data/2.5/weather", params={"appid":WEATHER_API, "zip":'07059,us'}).json()
             forecast_response = requests.get("http://api.openweathermap.org/data/2.5/forecast", params={"appid":WEATHER_API, "zip":'07059,us'}).json()
+            print(wether_response)
+            print(forecast_response)
             break
         except:
             print('-= Weather API JSON Failed - Will Try Again =-')

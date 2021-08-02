@@ -25,7 +25,10 @@
  #
 
 import epdif
-import Image
+try:
+    from PIL import Image
+except ImportError:
+    import Image
 import RPi.GPIO as GPIO
 
 # Display resolution
