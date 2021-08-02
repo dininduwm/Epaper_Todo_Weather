@@ -80,8 +80,8 @@ def query_todo_list():
     print('-= Ping ToDo API =-')
     while True:
         try:
-            #new_todo_response = requests.get("https://beta.todoist.com/API/v8/tasks", params={"token":TODOIST_TOKEN}).json()
-            new_todo_response = [{'content':"Test", 'priority':"1"}]
+            new_todo_response = requests.get("https://api.todoist.com/rest/v1/tasks", params={"Authorization":"Bearer %s" %TODOIST_TOKEN}).json()
+            #new_todo_response = [{'content':"Test", 'priority':"1"}]
             break
         except ValueError:
             print('-= ToDo API JSON Failed - Will Try Again =-')
