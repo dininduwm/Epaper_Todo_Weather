@@ -80,7 +80,7 @@ def query_todo_list():
     print('-= Ping ToDo API =-')
     while True:
         try:
-            new_todo_response = requests.get("https://api.todoist.com/rest/v1/tasks", params={"Authorization":"Bearer %s" %TODOIST_TOKEN}).json()
+            new_todo_response = requests.get("https://api.todoist.com/rest/v1/tasks", headers={"Authorization":"Bearer %s" %TODOIST_TOKEN}, params={"project_id": 2270693415}).json()
             #new_todo_response = [{'content':"Test", 'priority':"1"}]
             break
         except ValueError:
